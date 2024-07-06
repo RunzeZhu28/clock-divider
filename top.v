@@ -191,8 +191,8 @@ assign TEST_IO[2] = clk_1_o ;
 assign TEST_IO[3] = clk_2_o ;
 assign TEST_IO[4] = clk_3_o ;
 assign TEST_IO[5] = clk_4_o  ;
-assign TEST_IO[6] = clk_200 ; 
-assign TEST_IO[7] = clk_5_o ;
-assign TEST_IO[8] = clk_6_o ;
+assign TEST_IO[6] = clk_5_o ; 
+assign TEST_IO[7] = clk_6_o ;
+assign TEST_IO[8] = clk ;
 assign TEST_IO[9] = clk ;
 endmodule

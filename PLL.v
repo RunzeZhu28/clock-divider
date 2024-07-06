@@ -97,14 +97,14 @@ begin
     begin
         clk_o <= 0;
         //wait_counter = wait_count;
-        wait_counter <= wait_count;
+        wait_counter <= 0;
         high_counter <= 0;
         low_counter <= 0;
         low <= 1;
     end
-    else if (wait_counter != 0)
+    else if (wait_counter < wait_count - 1 )
     begin
-        wait_counter <= wait_counter - 1;
+        wait_counter <= wait_counter + 1;
     end
     else
     begin
