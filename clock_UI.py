@@ -8,10 +8,15 @@ logging.basicConfig(filename='fpga_config.log', level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 def process_input(frequency, duty_cycle, delay):
-    A = round(100000000 / frequency)
+    A = round(100000000 / frequency /1000000* 2) 
     B = round(A * duty_cycle)
     C = A - B
-    D = round(A * delay)
+    if (delay == 0):
+        D = round(A)
+    else:
+        D = round(A * delay)
+    
+
     return B, C, D
 
 def configure_fpga():
@@ -148,7 +153,7 @@ entries_duty_cycle = []
 entries_delay = []
 
 for i in range(6):
-    tk.Label(root, text=f"Clock {i+1} Frequency:(Hz)").grid(row=i*3, column=0, padx=10, pady=5)
+    tk.Label(root, text=f"Clock {i+1} Frequency:(MHz)").grid(row=i*3, column=0, padx=10, pady=5)
     entry_frequency = tk.Entry(root)
     entry_frequency.grid(row=i*3, column=1, padx=10, pady=5)
     entries_frequency.append(entry_frequency)
